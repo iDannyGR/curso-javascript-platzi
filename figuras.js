@@ -1,35 +1,47 @@
 'use strict'
 function perimetroCuadrado(lado){
-        let resultado = lado * 4;
-        return alert('el perimetro es: '+resultado +'cm');
+     alert('el perimetro es: '+lado * 4+'cm');
 }
 
 function areaCuadrado(lado){
-    let resultado = Math.pow(lado,2);
-    return alert('el area es: '+resultado + 'cm2');
+    return alert('el area es: '+Math.pow(lado,2)+ 'cm2');
 }
 
+function perimetroTriangulo(lado1,lado2,base){
+   return alert(`el perimetro es:${lado1+lado2+base}`)
+}
+
+function areaTriangulo(base, altura){
+    return alert(`el area del triangulo es: ${(base*altura)/2}`)
+};
+
+
+function circunferenciaCirculo (diametro){
+    return alert('la circunferencia es:'+ diametro * Math.PI)
+}
+
+function areaCirculo (radio){
+   return alert(`el area del ciculo es: ${(radio * radio) * Math.PI}`);
+} 
 
 window.addEventListener ('load', () =>{
     // AREA DE UN CUADRADO
-let usuario = prompt('ingrese la medida del lado del cuadrado:',0);
-        perimetroCuadrado(usuario);
-            //PERIMETRO DE UN CUADRADO
-        areaCuadrado(usuario);
+    //let usuario = prompt('ingrese la medida del lado del cuadrado:',0);
+   //     perimetroCuadrado(usuario);
+    //PERIMETRO DE UN CUADRADO
+      //  areaCuadrado(usuario);
     
-//triangulo
-//perimetro del triangulo
-let triangulo = {
-    lado1: 5,
-    lado2: 5,
-    base: 6.5,
-    altura: 4.2
-}
-
-let perimetroTriangulo = triangulo.lado1+triangulo.lado2+triangulo.base;
-console.log('el perimetro del triangulo es: '+perimetroTriangulo);
- 
+    //triangulo
+    //perimetro del triangulo
+    let  lado1 =5;
+    let lado2  =5;
+    let  base  =5;
+    let altura =5; 
 //area de triangulo
- let areaTriangulo = (triangulo.base*triangulo.altura)/2;
- console.log('el area del triangulo es: '+areaTriangulo);
+ 
+//circulo
+let radio=4;
+let diametro = radio * 2;
+
+
 });
