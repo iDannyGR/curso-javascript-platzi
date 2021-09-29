@@ -4,7 +4,7 @@ function perimetroCuadrado(lado){
 }
 
 function areaCuadrado(lado){
-    return alert('el area es: '+Math.pow(lado,2)+ 'cm2');
+            return alert('el area es: '+Math.pow(lado,2)+ 'cm2'); 
 }
 
 function perimetroTriangulo(lado1,lado2,base){
@@ -26,6 +26,13 @@ function areaCirculo (radio){
 
 window.addEventListener ('load', () =>{
     // AREA DE UN CUADRADO
+    let ladoCuadra = document.getElementById('ladocuadrado');
+    console.log(ladoCuadra);
+    let calcularArea = document.getElementById('area');
+        calcularArea.addEventListener('click', ()=>{
+            areaCuadrado(ladoCuadra);
+        });
+
     //let usuario = prompt('ingrese la medida del lado del cuadrado:',0);
    //     perimetroCuadrado(usuario);
     //PERIMETRO DE UN CUADRADO
