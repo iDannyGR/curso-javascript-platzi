@@ -26,17 +26,20 @@ function areaCirculo (radio){
 
 window.addEventListener ('load', () =>{
     // AREA DE UN CUADRADO
-    let ladoCuadra = document.getElementById('ladocuadrado');
-    console.log(ladoCuadra);
     let calcularArea = document.getElementById('area');
         calcularArea.addEventListener('click', ()=>{
+            let ladoCuadra = document.querySelector('#lado_cuadrado').value;
             areaCuadrado(ladoCuadra);
         });
+        //PERIMETRO DE UN CUADRADO   
+        let calcularPerimetro = document.getElementById('perimetro');
+        calcularPerimetro.addEventListener('click', ()=>{
+            let ladoCuadra = document.querySelector('#lado_cuadrado').value;
+            perimetroCuadrado(ladoCuadra);
+        });
+    
 
-    //let usuario = prompt('ingrese la medida del lado del cuadrado:',0);
-   //     perimetroCuadrado(usuario);
-    //PERIMETRO DE UN CUADRADO
-      //  areaCuadrado(usuario);
+
     
     //triangulo
     //perimetro del triangulo
