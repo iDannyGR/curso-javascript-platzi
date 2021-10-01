@@ -42,9 +42,20 @@ body h2{
 }
 #section_container-img img{
     display: block;
-    width: 40%;
+    float: left;
+    width: 30%;
     margin:auto;
     padding: 25px;
+}
+.section_container--respuesta{
+    color:black;
+    display: flex;
+    width: 50%;
+    height: 150px;
+    flex-direction: row-reverse;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
 }
 
 form input[type='number'],

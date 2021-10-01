@@ -1,10 +1,14 @@
 'use strict'
 function perimetroCuadrado(lado){
-     alert('el perimetro es: '+lado * 4+'cm');
+    let resultado = `${lado * 4}cm`; 
+    let squareContainer = document.querySelector('#section_container--cuadrado');
+    squareContainer.innerHTML=resultado;
 }
 
 function areaCuadrado(lado){
-            return alert('el area es: '+Math.pow(lado,2)+ 'cm2'); 
+    let resultado = `${Math.pow(lado,2)}cm2`; 
+    let squareContainer = document.querySelector('#section_container--cuadrado');
+    squareContainer.innerHTML=resultado;
 }
 
 function perimetroTriangulo(lado1,lado2,base){
