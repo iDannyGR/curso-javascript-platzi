@@ -1,39 +1,41 @@
 'use strict'
 function perimetroCuadrado(lado){
-    let resultado = `${lado * 4}cm`; 
     let squareContainer = document.querySelector('#section_container--cuadrado');
-    squareContainer.innerHTML=resultado;
+    squareContainer.innerHTML=`${lado * 4}cm`;
 }
 
 function areaCuadrado(lado){
-    let resultado = `${Math.pow(lado,2)}cm2`; 
     let squareContainer = document.querySelector('#section_container--cuadrado');
-    squareContainer.innerHTML=resultado;
+    squareContainer.innerHTML=`${Math.pow(lado,2)}cm2`;
 }
 
 function perimetroTriangulo(lado1,lado2,base){
-   return alert(`el perimetro es:${lado1+lado2+base}`)
+    let triangleContainer = document.querySelector('#section_container--triangulo'); 
+    triangleContainer.innerHTML =`perimetro:</br>${lado1+lado2+base}`;
 }
 
 function areaTriangulo(base, altura){
-    return alert(`el area del triangulo es: ${(base*altura)/2}`)
+    let triangleContainer = document.querySelector('#section_container--triangulo'); 
+    triangleContainer.innerHTML=`el area es:</br>${(base*altura)/2}`;
 };
 
 function isoseles(lado1,lado2,base){
+    let triangleContainer = document.querySelector('#section_container--triangulo'); 
     if(lado1===lado2 && lado1 != base){
-        return alert(`la altura del triangulo isoseles es: ${Math.sqrt(lado1**2 - base**2/ 4)}`)
+        triangleContainer.innerHTML =`Altura es:</br>${(Math.sqrt(lado1**2 - base**2/ 4)).toFixed(2)}`;
     }else{
-        return alert('no es isoseles')
-    }
-    
+        triangleContainer.innerHTML='no es isoseles';
+    }    
 };
 
 function circunferenciaCirculo (diametro){
-    return alert('la circunferencia es:'+ diametro * Math.PI)
+    let circleContainer = document.querySelector('#section_container--circulo');
+    circleContainer.innerHTML ='Circunferencia:</br>'+ (diametro * Math.PI).toFixed(2);
 }
 
 function areaCirculo (radio){
-   return alert(`el area del ciculo es: ${(radio * radio) * Math.PI}`);
+    let circleContainer = document.querySelector('#section_container--circulo');
+   circleContainer.innerHTML=`el area es:</br> ${((radio * radio) * Math.PI).toFixed(2)}`;
 } 
 
 window.addEventListener ('load', () =>{

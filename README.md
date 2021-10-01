@@ -9,3 +9,9 @@ carpeta de curso de javscript de platzi
 -   3-  creacion de funciones
 -   4-  integrar JS con HTML5
 
+## EJERCICIO 2: PORCENTAJES Y DESCUENTOS
+
+-   1- definir las formular
+-   2-  implementacion en JS
+-   3-  creacion de funciones
+-   4-  integrar JS con HTML5
