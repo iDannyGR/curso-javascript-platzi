@@ -1,26 +1,33 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Porcentajes y descuentos</title>
+    <title>Calculadora de descuentos</title>
     <script src="./descuentos.js"></script>
+    <link rel="stylesheet" href="./css/styles.css">
 </head>
 <body>
-    <section>
-        <p>calcular descuento</p>
-        <form action="#">
-            <label for="procentaje">Porcentaje</label>
-            <input type="text" name="porcentaje" id="porcentaje">
-            <label for="precio">precio Original</label>
-            <input type="text" name="precio" id="precio">
-            <button>Aplicar descuento</button></br>
-            <label for="descuento">Descuento</label>
-            <input type="text" name="porcentaje" id="porcentaje" disabled>
-            <label for="v_final">Valor Final</label>
-            <input type="text" name="v_final" id="v_final" disabled>
-        </form>
-    </section>
+        <header>
+            <h1>Calcula el descuento de tu producto</h1>
+        </header>
+        <section id="global_section">
+                <section class="section_container">
+                        <h3>Calcular descuento</h3>
+                        <form action="#" id="section_container-form">
+                            <label for="porcentaje">Porcentaje</label>
+                            <input type="number" name="porcentaje" id="porcentaje" required>
+                            <label for="precio">precio Original</label>
+                            <input type="number" name="precio" id="precio" required>
+                            <button id="aplDescuento">Aplicar descuento</button></br>
+                        </form>
+                        <div id="respuesta"></div>
+                </section>
+                
+        </section>
+        <footer>
+            <h2>todos los derechos reservados</h2>
+        </footer>
 </body>
 </html>
