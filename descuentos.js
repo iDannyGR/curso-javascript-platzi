@@ -23,15 +23,18 @@ window.addEventListener('load',()=>{
     getDescuento.addEventListener('click', ()=>{
         let price = document.querySelector('#precio').value;
         let percen = document.querySelector('#porcentaje').value;
-        let respuesta = document.getElementById('respuesta');  
         let extraDes= document.querySelector('#cupon').value;
-
-        if(price == '' || percen == '' ){
-            respuesta.innerHTML = 'Datos Erroneos';
+        let summed= 0;
+        if(extraDes ==""){
+            descuento(price, percen);
         }else{
-            
-        descuento(price,percen);
-        }
+            for (copunes of cupon){
+                if(extraDes == copunes.name){
+                    summed += copunes.des;
+                   descuento(percen + summed);
+                }
+            }
+           } 
 
     });
 });
