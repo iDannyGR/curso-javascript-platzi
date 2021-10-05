@@ -1,7 +1,7 @@
 // funciones
-function descuento (precio, porcentaje){
+function descuento (precio, porcentaje, extra){
     let respuesta = document.getElementById('respuesta');
-        let desApli = (porcentaje * precio) / 100;
+        let desApli = ((porcentaje+extra) * precio) / 100;
         let  valorFinal = precio - desApli;
         respuesta.innerHTML = `el descuento es ${desApli},</br> y el valor final es ${valorFinal}`;
 };
@@ -24,14 +24,12 @@ window.addEventListener('load',()=>{
         let price = document.querySelector('#precio').value;
         let percen = document.querySelector('#porcentaje').value;
         let extraDes= document.querySelector('#cupon').value;
-        let summed= 0;
-        if(extraDes ==""){
-            descuento(price, percen);
+        if(extraDes == null){
+            descuento(Number(price), Number(percen), 0);
         }else{
             for (copunes of cupon){
                 if(extraDes == copunes.name){
-                    summed += copunes.des;
-                   descuento(percen + summed);
+                   descuento(Number(price), Number(percen) ,Number(copunes.des));
                 }
             }
            } 
