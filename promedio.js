@@ -5,26 +5,44 @@ function mediaAritmetica (lista){
     };
     
     function espar(valor){
-        if(valor.length % 2 === 0){
+        if(valor % 2 === 0){
             return true
         }else{return false}
     };
+    
+    
+    function mediana(array){
+        let mitad =parseInt(array.length/2);
+        array.sort();
+        let mediana;
+            if(espar(array.length)){
+                mediana = (array[mitad-1] + array[mitad])/2
+                return alert(mediana);
+            }else{
+                mediana = array[mitad];
+                return alert (mediana);
+            };
+        
+    }
+
     //load
-    
-    window.addEventListener('load', ()=>{
-        //promedio
-    let arreglo = [500,200,100,500];
-    let mitad =parseInt(arreglo.length /2);
-    let mediana;
-        if(espar(arreglo.length)){
-            mediana = (arreglo[mitad] + arreglo[(mitad+1)])/2;
-            console.log(mediana);
-        }else{
-            mediana = arreglo[mitad];
-            console.log(mediana);
-        };
-    });
-    
+    let arreglo = [500,200,100,500,100];
+    let lista = [1,1,1,1,5,7,8,9,9,9,9,4,1,2,2,6,6,9];
+
+    let listaCount ={};
+    lista.map(
+        function (e){
+            if(listaCount[e]){
+                listaCount[e] +=1;
+            } else{
+                listaCount[e]=1;
+            }
+            
+        }
+    )
+
+
+
     
     //mediana
     /*
