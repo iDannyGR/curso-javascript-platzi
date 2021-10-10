@@ -30,19 +30,22 @@ function mediaAritmetica (lista){
     let lista = [1,1,1,1,5,7,8,9,9,9,9,4,1,2,2,6,6,9];
 
     let listaCount ={};
-    lista.map(
-        function (e){
-            if(listaCount[e]){
-                listaCount[e] +=1;
-            } else{
-                listaCount[e]=1;
-            }
-            
+    lista.map( (e) =>{
+        if(listaCount[e]){
+            listaCount[e] +=1;
+        } else{
+            listaCount[e]=1;
         }
-    )
+    })
+let lista1Array =Object.entries(lista).sort(
+    function(valorAcululado, nuevoValor){
+            valorAcululado - nuevoValor;
+    }
+);
 
 
-
+        
+        
     
     //mediana
     /*
