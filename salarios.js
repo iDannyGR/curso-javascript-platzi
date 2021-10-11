@@ -60,3 +60,7 @@ elSalvador.push({
     name: 'Cande',
     salary: 650,
 });
+elSalvador.push({
+    name: 'Carmen',
+    salary: 850,
+});
