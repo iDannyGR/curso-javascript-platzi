@@ -22,3 +22,10 @@ carpeta de curso de javscript de platzi
 -   2-  implementacion en JS
 -   3-  creacion de funciones
 -   4-  integrar JS con HTML5
+
+## EJERCICIO 4: DIFERENCIA SALARIAL
+
+-   1- definir las formular
+-   2-  implementacion en JS
+-   3-  creacion de funciones
+-   4-  integrar JS con HTML5
