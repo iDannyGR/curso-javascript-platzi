@@ -21,3 +21,96 @@ console.log(epic);
 //template literal
 let eppic2= `${hello} ${world}`;
 console.log(eppic2);
+
+let team1 =['oscar','julian','ricardo'];
+let team2 =['valeria','jesika','camila'];
+
+let education = ['davic', ...team1, ...team2];
+console.log(education);
+
+
+{
+    var globalVar = 'global var';
+}
+{
+let globalLet = 'global let';
+console.log(globalLet);
+}
+console.log(globalVar);
+
+const a = 'b';
+a = 'a';
+
+
+let name = 'Daniel';
+let age = 32;
+
+obj = {name: name, age:age}
+//es6
+obj2 = {name, age};
+console.log(obj2);
+
+const nombres = [
+    {nombre: 'daniel', age:32},
+    {nombre: 'veronica', age:27},
+];
+
+let listOfnames = nombres.map( item => console.log(item.nombre));
+/* 
+/const listOfNames2 = (nombre, edad, country) =>{
+    ...
+}
+
+const listOfName4= nombres =>{
+
+}  */
+
+const square = num => num*num;
+
+const helloPromise = ()=>{
+    return new Promise((resolve, reject)=>{
+            if(false){
+                resolve('hey todo bien');
+            }else{
+                reject('algo salio mal');
+            }
+    });
+}
+
+helloPromise()
+    .then(response => console.log(response))
+    .catch(error => console.log(error));
+
+
+    class calculadora{
+        constructor(){
+            this.valorA =0;
+            this.valorB =0;
+        }
+        sum(valorA,valorB){
+            this.valorA = valorA;
+            this.valorB = valorB;
+            return this.valorA + this.valorB;
+        }
+    }
+   const calc = new calculadora();
+   console.log(calc.sum(2,2));
+
+
+import {myExport} from './module'
+
+   hola();
+
+
+function* holaMundo(){
+    if(true){
+        yield 'hola, ';
+    }
+    if(true){
+        yield 'Mundo';
+    }
+};
+
+const generadorHola = holaMundo();
+console.log(generadorHola.next().value);
+console.log(generadorHola.next().value);
