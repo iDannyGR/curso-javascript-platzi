@@ -6,6 +6,7 @@
       href="https://necolas.github.io/normalize.css/8.0.1/normalize.css"
     />
     <link rel="stylesheet" href="./assets/index.css" />
+    <script src="./assets/index.js"></script>
   </head>
 
   <body>
@@ -21,19 +22,5 @@
 
       <button>Play/Pause</button>
     </main>
-    <script>
-      const video = document.querySelector('video');
-      const boton = document.querySelector('button');
-
-        function mediaPlayer(config){
-          this.media  = config.el;
-        }
-
-        mediaPlayer.prototype.play = function (){this.media.play()} ;
-        mediaPlayer.prototype.pause =function(){media.pause()};
-
-      const player = new mediaPlayer({el:video});
-      boton.onclick = () =>{player.paused? player.play():player.pause()};
-    </script>
   </body>
 </html>
