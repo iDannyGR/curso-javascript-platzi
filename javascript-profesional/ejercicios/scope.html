@@ -15,14 +15,26 @@
         //scope global
         // var message = "hola cab";
         // var $ = function(message) {console.log('di: '+message)}
-        function printNumbers(){
-                for(var i=0;i<20;i++){
+        // function imprimirNumeros(){
+        //     for(var i=0;i<10;i++){
+        //         function eventual(n){
+        //             setTimeout(function(){
+        //                 console.log(n);
+        //             },100);
+        //         }
+        //         eventual(i);
+        //     }
+        // }
+        // imprimirNumeros();
+
+        function imprimirNumeros2(){
+            for(let i=0;i<10;i++){
                     setTimeout(function(){
                         console.log(i);
                     },100);
-                }
+            }
         }
-        printNumbers()
+        imprimirNumeros2();
     </script>
 </body>
 </html>
