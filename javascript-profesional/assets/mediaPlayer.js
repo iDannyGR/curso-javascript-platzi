@@ -1,10 +1,24 @@
-function mediaPlayer(config){
-    this.media  = config.el;
-    this.plugins = config.plugins || [];
+class mediaPlayer{
+    constructor(config) {
+      this.media =config.el;
+      this.plugins = config.plugins || [];
+      
+      this._initPlugins();
+    }
+    _initPlugins(){
+      this.plugins.forEach(plugin =>{
+        plugin.run();
+      }
+      )};
+
+    play(){this.media.play()};
+    pause(){this.media.pause()};
+    togglePlay(){this.media.paused? this.play():this.pause()};
+    mute(){this.media.muted=true};
+    unmute(){this.media.muted=false};
+
   }  
      
-  mediaPlayer.prototype.play=function (){this.media.play()};
-  mediaPlayer.prototype.pause=function(){this.media.pause()};
-  mediaPlayer.prototype.togglePlay=function(){player.media.paused? player.play():player.pause()};
+ 
   
   export default mediaPlayer;
