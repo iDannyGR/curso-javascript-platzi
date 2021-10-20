@@ -28,6 +28,14 @@
         }
         console.log(`whohis strict(): ${whoThisStrict()}`);
         //this en el contexto de un objeto
+            const person ={
+                name: 'jorge',
+                saludar: function(){
+                    console.log(`hola soy ${this.name}`)
+                }
+            }
+            console.log(`person.saludar: ${person.saludar()}`);
+
         //this cuando sacamos a una funcion de un objeto
         //this en el contexto de una clase
 

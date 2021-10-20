@@ -1,8 +1,12 @@
-function autoPlay(){
-    this.autoPlay.run = function(player){
-        player.mute();
-        player.play();
+// AutoPlay
+class AutoPlay {
+    constructor(video) {
+      this.player = video
     }
-}
-
-export default autoPlay;
+    run() {
+      this.player.muted = true
+      this.player.play()
+    }
+  }
+  
+  export default AutoPlay
