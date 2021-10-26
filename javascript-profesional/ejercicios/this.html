@@ -37,6 +37,18 @@
             console.log(`person.saludar: ${person.saludar()}`);
 
         //this cuando sacamos a una funcion de un objeto
+        class Person{
+                constructor(name){    
+            this.name = name
+                }
+                saludar(){
+                    console.log(`me llamo: ${this.name}`);
+                }
+        }
+
+        const julia= new Person('julia');
+        julia.saludar();
+        
         //this en el contexto de una clase
 
     </script>

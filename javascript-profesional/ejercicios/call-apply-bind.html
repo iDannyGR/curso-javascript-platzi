@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CALL APPLY Y BIND</title>
+</head>
+<body>
+    <script>
+            //this usando call y pasar argumentos
+            function saludar(){
+                console.log(`hola soy: ${this.name} ${this.apellido}`);
+            }
+
+            const daniel = {
+                name:'daniel',
+                apellido: 'garcia'
+            }
+            saludar.call(daniel);
+
+            function caminar(metros, direccion){
+                    console.log(`${this.name} camina ${metros} metros hacia ${direccion}`);
+            }
+
+            caminar.call(daniel,5, 'arriba');
+            //this con apply y argumentos en funciones
+            const valores = [500,'abajo'];
+             caminar.apply(daniel, valores);
+             /*
+             call - argumentos separados por commas
+             apply - se le pasan arreglos
+             */
+            //this con bind
+            const jorge = {name: 'rick', apellido:'sanchez'};
+            const jorgeSaluda = saludar.bind(jorge);
+            jorgeSaluda();
+
+            //cuando son utiles cada metodo
+
+
+    </script>
+</body>
+</html>
