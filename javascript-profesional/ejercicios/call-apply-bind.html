@@ -7,6 +7,15 @@
     <title>CALL APPLY Y BIND</title>
 </head>
 <body>
+    <a href="/ejercicios/">Go back</a>
+    <p><em>abre la consola</em></p>
+    <ul>
+        <li><button  class="call_to-action">aprender</button></li>
+        <li><button  class="call_to-action">aprender mas</button></li>
+        <li><button  class="call_to-action">nunca parar de aprender</button></li>
+    </ul>
+
+
     <script>
             //this usando call y pasar argumentos
             function saludar(){
@@ -36,9 +45,18 @@
             const jorgeSaluda = saludar.bind(jorge);
             jorgeSaluda();
 
+                const jorgeCamina = caminar.bind(jorge, 1100);
+                jorgeCamina('sur');
             //cuando son utiles cada metodo
 
+            const buttons = document.getElementsByClassName('call_to-action');
+                // buttons.forEach(boton => {
+                //     button.onclick=()=> alert('nuca pares de aprender');
+                //}) esto no funciona porque es un NodeList
 
+            Array.prototype.forEach.call(buttons,button=>{
+                button.onclick=()=> alert('nuca pares de aprender');
+            });
     </script>
 </body>
 </html>
