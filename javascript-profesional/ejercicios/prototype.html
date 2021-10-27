@@ -27,11 +27,18 @@
         // link.saludar();
     class Hero{
         constructor(name){
-                hero{
-                     name: name
-                }
+            this.name = name 
         }
+        saludar(){
+        console.log(`hola soy ${this.name}`);
+                 }
     }
+    const zelda = new Hero('zelda');
+    zelda.saludar();
+
+    const link = new Hero('link');
+    link.saludar();
+
     </script>
 </body>
 </html>
