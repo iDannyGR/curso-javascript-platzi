@@ -7,7 +7,7 @@ class MediaPlayer {
   }
   _initPlugins() {
     this.plugins.forEach(plugin => {
-      plugin.run()
+      plugin.run;
     })
   }
   toogleMuteUnmute() {
