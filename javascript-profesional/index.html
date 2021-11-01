@@ -261,6 +261,16 @@
         itaque consectetur expedita. Libero, repudiandae?
       </li>
     </ul>
+<script>
+  const viewVideo = document.querySelector('.movie');
+   const callbackFunction = (entries) =>{
+        if(entries[0].isIntersecting){
+          console.log('en pantalla')
+        }else{console.log('fuera de pantalla')}
+   }
 
+   observador = new IntersectionObserver(callbackFunction);
+   observador.observe(viewVideo);
+</script>
   </body>
 </html>
