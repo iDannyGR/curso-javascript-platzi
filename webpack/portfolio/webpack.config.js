@@ -1,5 +1,6 @@
 const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExPlugin = require('mini-css-extract-plugin');
 
 module.exports={
     entry: './src/index.js', // permite decir el punto de entrada
@@ -18,6 +19,12 @@ module.exports={
                 use:{
                     loader:'babel-loader'
                 }
+            },
+            {
+                test: /\.css$/i,
+                use:[MiniCssExPlugin.loader,
+                'css-loader'
+            ],
             }
         ]
     },
@@ -26,7 +33,8 @@ module.exports={
           inject:true,
           template:'./public/index.html', //donde leera el archivo HTML
           filename:'./index.html' //salida de archivo html
-      })
-    ],
+      }),
+      new MiniCssExPlugin(),
+    ], 
 }
 

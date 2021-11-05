@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prototype</title>
+</head>
+<body>
+    <a href="/ejercicios/">Go back</a>
+    <p><em>abre la consola</em></p>
+
+    <script>
+        // const zelda = {
+        //     name:'Zelda'
+        // }
+        // zelda.saludar = function(){
+        //     console.log(`hola soy ${this.name}`);
+        // }
+        // zelda.saludar();
+        // const link = {
+        //     name:'Link'
+        // }
+        // link.saludar = function(){
+        //     console.log(`hola soy ${this.name}`);
+        // }
+        // link.saludar();
+    class Hero{
+        constructor(name){
+            this.name = name 
+        }
+        saludar(){
+        console.log(`hola soy ${this.name}`);
+                 }
+    }
+    const zelda = new Hero('zelda');
+    zelda.saludar();
+
+    const link = new Hero('link');
+    link.saludar();
+
+    </script>
+</body>
+</html>
