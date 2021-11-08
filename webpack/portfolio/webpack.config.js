@@ -1,6 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExPlugin = require('mini-css-extract-plugin');
+const CopyWebpack = require('copy-webpack-plugin');
 
 module.exports={
     entry: './src/index.js', // permite decir el punto de entrada
@@ -25,6 +26,10 @@ module.exports={
                 use:[MiniCssExPlugin.loader,
                 'css-loader'
             ],
+            },
+            {
+               test:/\.png/,
+               type: 'asset/resource' 
             }
         ]
     },
@@ -35,6 +40,14 @@ module.exports={
           filename:'./index.html' //salida de archivo html
       }),
       new MiniCssExPlugin(),
+      new CopyWebpack({
+          patterns: [
+              {
+                  from: path.resolve(__dirname,"src","assets/images"),
+                  to: "assets/images"
+              }
+          ]
+      })
     ], 
 }
 
