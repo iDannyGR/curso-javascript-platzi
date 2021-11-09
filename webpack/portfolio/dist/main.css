@@ -5,6 +5,13 @@
 /*!***************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./src/styles/main.css (1) ***!
   \***************************************************************************/
+@font-face{
+	font-family: 'Ubuntu';
+	src: url(assets/images/77834f603f66b17a4b8d.woff2) format('woff2'),
+	url(assets/images/34d9ed2689b817bfb480.woff) format('woff');
+	font-weight: 400;
+	font-style: normal;
+}
 html {
 	font-family: sans-serif;
 	-ms-text-size-adjust: 100%;
