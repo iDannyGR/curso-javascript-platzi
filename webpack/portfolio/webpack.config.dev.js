@@ -3,8 +3,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExPlugin = require('mini-css-extract-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
-const {CleanWebpackPlugin} = require('clean-webpack-plugin');
-
 
 
 
@@ -15,6 +13,8 @@ module.exports={
         filename: '[name].[contenthash].js', //nombre del archivo final
         assetModuleFilename: 'assets/images/[hash][ext][query]'
     },
+    mode:'development',
+    watch:true,
     resolve:{ //extensiones que tendremos en el proyecto para
         extensions: ['.js'], //los lea webpack
         alias: {
@@ -76,10 +76,6 @@ module.exports={
           ]
       }),
       new Dotenv(),
-      new CleanWebpackPlugin(),
     ],
-    optimization:{
-        minimize:true
-    }
 }
 
