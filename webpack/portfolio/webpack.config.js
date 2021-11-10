@@ -9,7 +9,7 @@ module.exports={
     entry: './src/index.js', // permite decir el punto de entrada
     output:{
         path: path.resolve(__dirname,'dist'), // carpeta donde se guarda
-        filename: 'main.js', //nombre del archivo final
+        filename: '[name].[contenthash].js', //nombre del archivo final
         assetModuleFilename: 'assets/images/[hash][ext][query]'
     },
     resolve:{ //extensiones que tendremos en el proyecto para
@@ -56,7 +56,9 @@ module.exports={
           template:'./public/index.html', //donde leera el archivo HTML
           filename:'./index.html' //salida de archivo html
       }),
-      new MiniCssExPlugin(),
+      new MiniCssExPlugin({
+          filename:'assets/[name].[contenthash].css'
+      }),
       new CopyPlugin({
           patterns: [
               {
@@ -64,6 +66,9 @@ module.exports={
               }
           ]
       })
-    ], 
+    ],
+    optimization:{
+        minimize:true
+    }
 }
 
