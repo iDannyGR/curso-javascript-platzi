@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpack = require('html-webpack-plugin');
+const MiniCss = require('mini-css-extract-plugin');
 
 module.exports={
     entry: './src/index.js',
@@ -8,13 +9,13 @@ module.exports={
         filename: 'bundle.js',
     },
     resolve:{
-        extensions: ['.js', '.jsx']
+        extensions: ['.js', '.jsx'] //extesiones para react
     },
     mode: 'development',
     module:{
         rules:[
             {
-                test: /\.js|jsx$/,
+                test: /\.js|jsx$/, //expresion regular para buscar extensiones
                 exclude: /node_modules/,
                 use:{
                     loader: 'babel-loader'
@@ -25,6 +26,14 @@ module.exports={
                 use:[
                     {loader: 'html-loader'}
                 ]
+            },
+            {
+                test: /\.s[ac]ss$/,
+                use:[
+                    'style-loader',
+                    'css-loader',
+                    'sass-loader',       
+                    ]
             }
         ]
     },
@@ -32,6 +41,9 @@ module.exports={
         new HtmlWebpack({
             template:'./public/index.html',
             filename: './index.html'
+        }),
+        new MiniCss({
+            filename:'[name].css'
         })
     ],
     devServer:{
