@@ -61,6 +61,9 @@ module.exports={
         minimizer:[
             new CssMinimizer(),
             new TerserPlugin(),
-        ]
+        ],
+        devServer:{
+            historyApiFallback:true,
+        }
     }
 }
