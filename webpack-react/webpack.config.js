@@ -11,7 +11,7 @@ module.exports={
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: 'bundle.js',
-        publicPatch:'/',
+      
     },
     resolve:{
         extensions: ['.js', '.jsx'], //extesiones para react
@@ -37,12 +37,19 @@ module.exports={
                 ]
             },
             {
-                test: /\.s[ac]ss$/,
+                test: /\.s[ac]ss|.css$/,
                 use:[
                     'style-loader',
                     'css-loader',
                     'sass-loader',       
                     ]
+            },
+            {
+                test: /\.(png|jpg|svg|jpeg|webp)$/,
+                type: 'asset/resource',
+                generator:{
+                    filename:'assets/pictures/[hash][ext]',
+                }
             }
         ]
     },
@@ -62,8 +69,7 @@ module.exports={
             new CssMinimizer(),
             new TerserPlugin(),
         ],
-        devServer:{
-            historyApiFallback:true,
-        }
+
+        
     }
 }

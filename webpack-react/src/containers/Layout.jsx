@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react';  //rafce para llamar freact y funcion completa
 
 
 const Layout =({children})=>{
@@ -10,3 +10,6 @@ const Layout =({children})=>{
 }
 
 export default Layout;
+
+
+
