@@ -1,5 +1,5 @@
 import React from 'react';
-import '../styles/RecoveryPassword.scss';
+import '../styles/EmailSend.scss';
 import email from '../assets/icons/email.svg';
 import Logo from '../assets/images/logo_yard_sale.svg';
 const RecoveryPassword = () => {
