@@ -19,12 +19,12 @@ import Orders from "../pages/Orders";
                 <Routes>              
                     <Route   path ="/" element={<Home />} /> 
                     <Route   path ="/login" element={<Login />} /> 
-                    <Route   path="/account" element={<MyAccount />} /> 
+                    <Route   path ="/account" element={<MyAccount />} /> 
                     <Route   path ="/recovery" element={<PasswordReset />} />  
                     <Route   path ="/emailsend" element={<EmailSend />} />
                     <Route   path ='/newaccount' element={<CreateAccount />} />
-                    <Route   path="/checkout" element={<Checkout />} />
-					<Route   path="/orders" element={<Orders />} />
+                    <Route   path ="/checkout" element={<Checkout />} />
+					<Route   path ="/orders" element={<Orders />} />
                     <Route   path ="*" element={<NotFound />} />                
                 </Routes>
             </Layout>
