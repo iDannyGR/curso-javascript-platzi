@@ -9,6 +9,7 @@
 	border-radius: 20px;
 	object-fit: cover;
 }
+
 .product-info {
 	display: flex;
 	justify-content: space-between;
@@ -21,6 +22,7 @@
 .product-info figure img {
 	width: 35px;
 	height: 35px;
+	cursor: pointer;
 }
 .product-info div p:nth-child(1) {
 	font-weight: bold;

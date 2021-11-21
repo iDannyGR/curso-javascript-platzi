@@ -1,6 +1,6 @@
 import React from 'react';
-import '../styles/PasswordReset.scss';
-import Logo from '../assets/images/logo_yard_sale.svg';
+import '@styles/PasswordReset.scss';
+import Logo from '@images/logo_yard_sale.svg';
 const Login = ()=>{
     return (
     <div className="login">

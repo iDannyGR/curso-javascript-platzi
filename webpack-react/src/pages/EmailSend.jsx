@@ -1,7 +1,8 @@
 import React from 'react';
-import '../styles/EmailSend.scss';
-import email from '../assets/icons/email.svg';
-import Logo from '../assets/images/logo_yard_sale.svg';
+import '@styles/EmailSend.scss';
+import email from '@icon/email.svg';
+import Logo from '@images/logo_yard_sale.svg';
+
 const RecoveryPassword = () => {
     return (
         <div class="login">

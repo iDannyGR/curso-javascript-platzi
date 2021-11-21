@@ -1,11 +1,13 @@
 import React from 'react';
-import OrderItem from '../components/OrderItem';
-import Menu from '../components/Menu';
-import '../styles/Checkout.scss';
+import OrderItem from '@components/OrderItem';
+import Menu from '@components/Menu';
+import '@styles/Checkout.scss';
 
 const Checkout = () => {
 	return (
+		
 		<div className="Checkout">
+	
 			<div className="Checkout-container">
 				<h1 className="title">My order</h1>
 				<div className="Checkout-content">
