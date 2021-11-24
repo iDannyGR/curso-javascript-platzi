@@ -1,22 +1,35 @@
-import React from 'react';
+import React,{useRef} from 'react';
 import '@styles/Login.scss';
 import logo from '@images/logo_yard_sale.svg';
 
 
 const Login =()=> {
+    const form = useRef(null);
+
+    const handleSubmit =(e)=>{
+        e.preventDefault();
+        const formData = new FormData(form.current);
+        const data ={
+            username: formData.get('email'),
+            password: formData.get('password')
+        }
+        console.log(data);
+    }
     return (
-        <div class="login">
-            <div class="form-container">
-                <img src={logo} alt="logo" class="logo" />
-                <form action="/" class="form">
-                    <label for="email" class="label">Email address</label>
-                    <input type="text" id="email" placeholder="platzi@example.cm" class="input input-email" />
-                    <label for="password" class="label">Password</label>
-                    <input type="password" id="password" placeholder="*********" class="input input-password" />
-                    <input type="submit" value="Log in" class="primary-button login-button" />
+        <div className="login">
+            <div className="form-container">
+                <img src={logo} alt="logo" className="logo" />
+                <form action="/" className="form" ref={form}>
+                    <label htmlFor="email" className="label">Email address</label>
+                    <input type="text" name="email" placeholder="platzi@example.cm" className="input input-email" />
+                    <label htmlFor="password" className="label">Password</label>
+                    <input type="password" name="password" placeholder="*********" className="input input-password" />
+                    <button className="primary-button login-button" onClick={handleSubmit}>
+                        Log in
+                    </button>
                     <a href="/">Forgot my password</a>
                 </form>
-                <button class="secondary-button signup-button">Sign up</button>
+                <button className="secondary-button signup-button">Sign up</button>
             </div>
         </div>
     )

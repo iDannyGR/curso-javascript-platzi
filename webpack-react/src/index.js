@@ -4,5 +4,5 @@ import App from './routes/App';
 
 
 
-reactDom.hydrate(<App/>, document.getElementById('app'));
+reactDom.render(<App/>, document.getElementById('app'));
 
