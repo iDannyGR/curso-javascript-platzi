@@ -2,7 +2,7 @@ import React from 'react';
 import '@styles/OrderItem.scss';
 import Close from '@icon/icon_close.png';
 
-const OrderItem = ({product}) => {
+const OrderItem = ( {product} ) => {
 	return (
 		<div className="OrderItem">
 			<figure>
