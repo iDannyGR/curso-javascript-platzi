@@ -1,7 +1,7 @@
 function hola(nombre, mycallback){
     setTimeout(()=>{
         console.log('hola '+nombre);
-        mycallback();
+        mycallback(nombre);
     },1000);
 }
 function adios(nombre, callback){
@@ -13,8 +13,8 @@ function adios(nombre, callback){
 
 
 console.log('iniciando proceso');
-hola('Daniel',()=>{
-    adios('daniel', ()=>{
+hola('Daniel',(nombre)=>{
+    adios(nombre, ()=>{
         console.log('terminando proceso')
     });
     });
