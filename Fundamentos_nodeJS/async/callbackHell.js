@@ -11,7 +11,7 @@ function adios(nombre, callback){
     },2000);
 }
 
-function tallk(callbackTall){
+function talk(callbackTall){
     setTimeout(()=>{
         console.log('blabla bla bla bla ');
         callbackTall();
@@ -19,19 +19,21 @@ function tallk(callbackTall){
 }
  
 function conversacion(nombre, veces, callback){
-    if(veces >=0){
-        hablar(()=>{
+    if(veces >0){
+        talk(()=>{
             conversacion(nombre, --veces, callback);
         })
     }else{
-        callback(nombre);
+        adios(nombre, callback);
     }
     
 }
 // --
 
 console.log('iniciando proceso');
-  
+  hola('Daniel', (nombre)=>{
+      conversacion(nombre,3, ()=> console.log('proceso terminado'));
+  });
 // hola('Daniel',(nombre)=>{
 //         tallk(()=>{
 //                     tallk(()=>{
