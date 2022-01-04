@@ -3,4 +3,7 @@ function saludar(){
 };
 
 
-export default saludar;
+export default {
+    saludar ,
+    pro1 : 'hola mundo en objetos de ES6'
+};

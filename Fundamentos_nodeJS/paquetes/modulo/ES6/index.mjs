@@ -1,4 +1,8 @@
+//traer un modulo
 import modulo from './modulo.mjs';
 
 
-modulo();
+//ejecutar una funcion del modulo
+
+modulo.saludar();
+console.log(modulo.pro1);
