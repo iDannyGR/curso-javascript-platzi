@@ -1,4 +1,5 @@
 const express = require ('express');
+const { append } = require('express/lib/response');
 const myApp = express();
 const port = 3000;
 
@@ -13,15 +14,29 @@ myApp.get('/home', (req, res)=>{
 });
 
 myApp.get('/products', (req, res)=>{
-  res.send('productos');
+  res.json([
+    {name : 'ps5',
+    price : 700},
+    {name : 'xbox X',
+    price : 750}
+  ])
 });
 
-myApp.get('/json', (req, res)=>{
-  res.send({
-    name: 'ps5',
-    price: 700
-  });
+myApp.get('/products/:id', (req, res)=>{
+  const {id} = req.params;
+    res.json({
+      id,
+      name : 'ps5',
+      price : 700
+    })
+});
 
+myApp.get('/categories/:categoryId/products/:productId', (req, res)=>{
+    const {categoryId, productId} = req.params;
+    res.json({
+      categoryId,
+      productId
+    })
 });
 
 myApp.listen(port, ()=>{
