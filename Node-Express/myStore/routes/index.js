@@ -1,11 +1,16 @@
+const express = require('express')
 const productsRouter = require ('./productsRouter');
 const userRouter = require ('./usersRouter');
 const categories = require('./categoriesRouter')
 
 function routerApi(myApp){
-    myApp.use('/products', productsRouter);
-    myApp.use('/users', userRouter);
-    myApp.use('/categories', categories );
+
+  const router = express.Router(); //para crear un path global
+  myApp.use('/api/v1', router) //y poder redireccionar en diferntes versiones
+      //se puede usar router de express
+    router.use('/products', productsRouter);
+    router.use('/users', userRouter);
+    router.use('/categories', categories );
 };
 
 
