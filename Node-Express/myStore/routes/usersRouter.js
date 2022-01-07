@@ -7,4 +7,13 @@ router.get('/', (req, res)=>{
 });
 
 
+
+router.delete('/', (req, res)=>{
+    const {id}= req.params;
+    res.json({
+      "message": 'delete user',
+      id
+    });
+});
+
 module.exports =  router;
