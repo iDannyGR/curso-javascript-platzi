@@ -30,7 +30,7 @@ router.get('/:id', (req, res)=>{
       message: 'not found'
     });
   } else {
-        res.status(200).json({
+      res.status(200).json({
       id,
       name : 'ps5',
       price : 700
