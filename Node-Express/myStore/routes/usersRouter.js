@@ -6,12 +6,28 @@ router.get('/', (req, res)=>{
    limit && offset ? res.json({ limit,offset}) : res.send('no hay parametros');
 });
 
+router.post('/', (req, res)=>{
+    const body = req.body;
+    res.json({
+      message: "create user",
+      data: body
+    });
+});
 
+router.patch('/:id', (req, res)=>{
+    const {id} = req.params;
+    const body = req.body;
+    res.json({
+      message: "update user partial",
+      data: body,
+      id
+    });
+});
 
-router.delete('/', (req, res)=>{
+router.delete('/:id', (req, res)=>{
     const {id}= req.params;
     res.json({
-      "message": 'delete user',
+      message: 'delete user',
       id
     });
 });

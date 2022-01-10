@@ -17,18 +17,27 @@ router.get('/', (req, res)=>{
     res.json(products);
 });
 
+
 router.get('/filter',(req, res)=>{
   res.send('yo soy un filtro');
 });
 
+
 router.get('/:id', (req, res)=>{
   const {id} = req.params;
-    res.json({
+  if(id === '999'){
+    res.status(404).json({
+      message: 'not found'
+    });
+  } else {
+        res.status(200).json({
       id,
       name : 'ps5',
       price : 700
-    })
+    });
+  }
 });
+
 
 router.post('/', (req, res)=>{
   const body = req.body;
@@ -37,6 +46,7 @@ router.post('/', (req, res)=>{
     data: body,
   });
 });
+
 
 router.patch('/:id', (req, res)=>{
   const {id} = req.params;
@@ -48,6 +58,7 @@ router.patch('/:id', (req, res)=>{
   });
 });
 
+
 router.delete('/:id', (req, res)=>{
   const {id} = req.params;
   res.json({
@@ -55,5 +66,6 @@ router.delete('/:id', (req, res)=>{
     id,
   });
 });
+
 
 module.exports = router;
