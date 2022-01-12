@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "type":"commonjs",
+  "type": "commonjs",
   "scripts": {
     "dev": "nodemon index.js",
     "start": "node index.js",
@@ -21,6 +21,7 @@
     "prettier": "^2.5.1"
   },
   "dependencies": {
+    "@hapi/boom": "^9.1.4",
     "express": "^4.17.2"
   }
 }
