@@ -7,21 +7,23 @@ const port = 3000;
 
 myApp.use(express.json())
 
+const whiteList = ['http://localhost:3000/','http://127.0.0.1:5500/', 'http://localhost:5500/' ];
+var corsOptions = {
+  origin: function (origin, callback) {
+    if (whiteList.indexOf(origin) !== -1) {
+      callback(null, true)
+    } else {
+      callback(new Error('Not allowed by CORS'))
+    }
+  }
+}
+myApp.use(cors(corsOptions));
 
 myApp.get('/', (req, res)=>{
       res.send('pagina principal');
 });
-const whiteList = ['http://localhost:5500/'];
-const coorsOption = {
-  origin: (origin, callback)=>{
-    (whiteList.includes(origin)) ?
-    callback(null, true):
-    callback(new Error('not Have a Persmission'))
-      }
-  }
 
 
-myApp.use(cors(coorsOption));
 routerApi(myApp);
 myApp.use(logErrors);
 myApp.use(boomErrorHandler);
