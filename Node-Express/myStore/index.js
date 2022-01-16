@@ -3,19 +3,18 @@ const routerApi = require("./routes");
 const {logErrors, errorHandler, boomErrorHandler} = require('./middlewares/error.handler');
 const cors = require('cors')
 const myApp = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 myApp.use(express.json())
 
-const whiteList = ['http://localhost:3000/','http://127.0.0.1:5500/', 'http://localhost:5500/' ];
+const whiteList = ['http://127.0.0.1:5500/', 'http://localhost:3000/'];
 var corsOptions = {
   origin: function (origin, callback) {
-    if (whiteList.indexOf(origin) !== -1) {
-      callback(null, true)
-    } else {
-      callback(new Error('Not allowed by CORS'))
-    }
+    whiteList.indexOf(origin) !== -1 || !origin ?
+      callback(null, true):
+      callback(new Error('no permitido'));
   }
+
 }
 myApp.use(cors(corsOptions));
 
@@ -25,6 +24,7 @@ myApp.get('/', (req, res)=>{
 
 
 routerApi(myApp);
+
 myApp.use(logErrors);
 myApp.use(boomErrorHandler);
 myApp.use(errorHandler);
