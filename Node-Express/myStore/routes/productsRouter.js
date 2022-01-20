@@ -22,7 +22,7 @@ validatorHandler(getProductSchema, 'params'),
 async (req, res, next)=>{
     try {
       const {id} = req.params;
-    const product = await service.findOne(id);
+    const product = await service.findOne(id); //hay que revisar porque el schema tiene validacion uuid y por eso no deja pasar el ID
     res.json(product);
     } catch (error) {
       next(error);
