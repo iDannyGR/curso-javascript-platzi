@@ -1,33 +1,41 @@
 const boom = require('@hapi/boom');
-const pool = require('../libs/postgres.pool')
+const { response } = require('express');
+const {models} = require('./../libs/sequelize')
+
 
 class userService{
-    constructor(){
-      this.pool = pool;
-      this.pool.on('error', (err)=> console.log(err));
-    }
+    constructor(){}
 
      async create(data){
-        return data;
+        const response = await models.User.create({
+          email: data.email,
+          name: data.name,
+          create_at: data.date
+        });
+        return response;
     };
 
     async find(){
-       const query = 'SELECT * FROM tasks';
-       const response =await this.pool.query(query);
-       return response.rows;
+       const response =await models.User.findAll();
+       return response;
 
     }
 
     async findOne(id){
-        return {id};
+      const response = await models.User.findByPk(id);
+        return response;
     }
 
     async update(id, changes){
+
        return {id, changes};
     }
 
    async delete(id){
-          return {id}
+         const response = await models.User.destroy({where:
+          {id:id}
+        });
+          return response;
     }
 
 
