@@ -4,6 +4,10 @@ function logErrors(err, req, res, next){
   next(err);
 }
 
+function serverError(err, req, res, next){
+
+}
+
 function errorHandler(err, req, res, next){
   console.log('ErrorHandler')
     res.status(500).json({
