@@ -1,5 +1,10 @@
-const express = require('express')
-const router = express.Router()
+const express = require('express');
+const categoryService = require ('../services/categoryService');
+const valitadorHandler = require('../middlewares/validator.handler');
+const service = new categoryService
+const router = express.Router();
+
+
 
 router.get('/',(req,res)=>{
     res.send('this its categories');

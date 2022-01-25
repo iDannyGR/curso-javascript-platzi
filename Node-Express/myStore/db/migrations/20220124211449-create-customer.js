@@ -7,7 +7,7 @@ const {CUSTOMER_TABLE,CustomerSchema} = require('./../models/customer.model')
     },
 
     async down (queryInterface) {
-      await queryInterface.drop(CUSTOMER_TABLE);
+      await queryInterface.dropTable(CUSTOMER_TABLE);
     }
   };
 
