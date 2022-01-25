@@ -29,4 +29,4 @@ const getCustomerSchema = joi.object({
     id: id.required()
 })
 
-module.exports = {createCustomerSchema,updateCustomerSchema,deleteCustomerSchema,getCustomerSchema}
+module.exports = {createCustomerSchema,updateCustomerSchema,getCustomerSchema,deleteCustomerSchema}

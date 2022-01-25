@@ -39,7 +39,7 @@ async (req, res, next)=>{
 
 });
 
-router.patch('/:id', async (req, res)=>{
+router.patch('/:id',
   validatorHandler(getUserSchema, 'params'),
   validatorHandler(updateUserSchema, 'body'),
   async (req, res, next)=>{
@@ -52,7 +52,6 @@ router.patch('/:id', async (req, res)=>{
         next(error);
       }
     }
-  }
 );
 
 router.delete('/:id',validatorHandler(deleteUserSchema, 'params'),

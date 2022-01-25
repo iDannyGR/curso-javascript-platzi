@@ -1,7 +1,7 @@
 const express = require ('express');
-const customerService = require ('../services/customer.Service');
+const customerService = require ('../services/customerService');
 const validatorHandler = require('../middlewares/validator.handler');
-const {createCustomerSchema,updateCustomerSchema,deleteCustomerSchema,getCustomerSchema} = require('../schemas/customer.schema');
+const {createCustomerSchema,updateCustomerSchema,getCustomerSchema,deleteCustomerSchema} = require('../schemas/customer.schema');
 const router = express.Router();
 const service = new customerService();
 
@@ -31,15 +31,15 @@ validatorHandler(createCustomerSchema, 'body'),
 async (req, res, next)=>{
   try {
     const body = req.body;
-  const newCategory = await service.create(body);
-  res.status(201).json(newCategory);
+  const newCustomer = await service.create(body);
+  res.status(201).json(newCustomer);
   } catch (error) {
       next(error);
   }
 
 });
 
-router.patch('/:id', async (req, res)=>{
+router.patch('/:id',
   validatorHandler(getCustomerSchema, 'params'),
   validatorHandler(updateCustomerSchema, 'body'),
   async (req, res, next)=>{
@@ -52,7 +52,6 @@ router.patch('/:id', async (req, res)=>{
         next(error);
       }
     }
-  }
 );
 
 router.delete('/:id',validatorHandler(deleteCustomerSchema, 'params'),
