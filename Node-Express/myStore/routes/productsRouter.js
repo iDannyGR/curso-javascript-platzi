@@ -6,9 +6,14 @@ const validatorHandler = require('./../middlewares/validator.handler');
 const {CreateProductSchema, updateProductSchema, getProductSchema} = require('./../schemas/product.schema')
 
 
-router.get('/', async (req, res)=>{
+router.get('/', async (req, res, next)=>{
+  try {
     const products = await service.find();
     res.json(products);
+  } catch (error) {
+    next(error);
+  }
+
 });
 
 
@@ -22,7 +27,7 @@ validatorHandler(getProductSchema, 'params'),
 async (req, res, next)=>{
     try {
       const {id} = req.params;
-    const product = await service.findOne(id); //hay que revisar porque el schema tiene validacion uuid y por eso no deja pasar el ID
+    const product = await service.findOne(id);
     res.json(product);
     } catch (error) {
       next(error);

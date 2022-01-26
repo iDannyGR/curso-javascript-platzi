@@ -1,38 +1,70 @@
 const express = require('express');
 const categoryService = require ('../services/categoryService');
-const valitadorHandler = require('../middlewares/validator.handler');
-const service = new categoryService
+const validatorHandler = require('../middlewares/validator.handler');
+const {createCategorySchema, updateCategorySchema, getCategorySchema, deleteCategorySchema} = require('../schemas/category.schema')
 const router = express.Router();
+const service = new categoryService
 
 
-
-router.get('/',(req,res)=>{
-    res.send('this its categories');
+router.get('/', async (req,res, next) =>{
+  try {
+    const category = await service.find();
+    res.json(category);
+  } catch (error) {
+    next(error);
+  }
 })
 
-router.get('/:categoryId/:namecategory',(req, res)=>{
-    const {id, name} = req.params;
-    res.json({
-      id,
-      category: name
-    });
-});
-
-router.post('/', (req, res)=>{
-    const data = req.body;
-    res.json({
-        message : "category create",
-        data
-    })
+router.get('/:id', validatorHandler(getCategorySchema, 'params'),
+async(req, res, next)=>{
+    try {
+        const {id}= req.params;
+        const category = service.findOne(id);
+        res.json(category);
+    } catch (error) {
+      next(error)
+    }
 })
 
-router.delete('/:id', (req, res)=>{
+router.post('/', validatorHandler(createCategorySchema, 'body'),
+async (req, res, next)=>{
+   try {
+        const body = req.body;
+        const newCategory = await service.create(body);
+  res.status(201).json(newCategory);
+   } catch (error) {
+     next(error);
+   }
+})
+
+router.patch('/:id',
+  validatorHandler(getCategorySchema, 'params'),
+  validatorHandler(updateCategorySchema, 'body'),
+  async (req, res, next)=>{
+    try {
+      const {id} = req.params;
+      const body = req.body;
+      const category = await service.update(id, body);
+      res.json(category);
+    } catch (error) {
+        next(error);
+      }
+    }
+);
+
+router.delete('/:id', validatorHandler(deleteCategorySchema, 'params'),
+async (req, res, next)=>{
+  try {
     const {id} = req.params;
-    res.json({
-      message: "category delete",
-      id
-    });
-});
+    await service.delete(id);
+    res.status(201).json({id});
+
+  } catch (error) {
+    next(error)
+  }
+
+
+})
 
 
 module.exports = router;

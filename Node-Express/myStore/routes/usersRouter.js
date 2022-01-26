@@ -46,8 +46,8 @@ router.patch('/:id',
     try {
       const {id} = req.params;
       const body = req.body;
-      const category = await service.update(id, body);
-      res.json(category);
+      const updateUser = await service.update(id, body);
+      res.json(updateUser);
     } catch (error) {
         next(error);
       }

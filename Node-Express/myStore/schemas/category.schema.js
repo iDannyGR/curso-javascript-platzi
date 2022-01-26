@@ -19,5 +19,8 @@ const getCategorySchema = joi.object({
   id: id.required(),
 });
 
+const deleteCategorySchema = joi.object({
+  id: id.required(),
+});
 
-module.exports = {createCategorySchema, updateCategorySchema, getCategorySchema}
+module.exports = {createCategorySchema, updateCategorySchema, getCategorySchema, deleteCategorySchema}
