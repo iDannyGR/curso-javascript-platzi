@@ -15,7 +15,14 @@ class OrderService {
   }
 
   async findOne(id) {
-    return { id };
+    const findOrder = await models.Order.findByPk(id,{
+      include: [{association:'customer',
+                 include:['user'] }]
+    } );
+    if(!findOrder){
+      throw boom.notFound('order not found')
+    }
+    return findOrder;
   }
 
   async update(id, changes) {
@@ -26,7 +33,8 @@ class OrderService {
   }
 
   async delete(id) {
-    return { id };
+    const response = await this.findOne(id);
+    response
   }
 
 }
