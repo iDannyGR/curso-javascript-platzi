@@ -25,12 +25,29 @@ const orderSchema ={
       type: DataTypes.DATE,
       field: 'create_at',
       defaultValue: Sequelize.NOW
+    },
+    total:{
+      type:DataTypes.VIRTUAL,
+      get(){
+        if(this.items.length>0){
+            return this.items.reduce((total, item)=>{
+              return total  + (item.price * item.OrderProduct.ammount);
+            },0);
+        }
+        return 0;
+      }
     }
-}
+  }
 
 class Orders extends Model {
     static associate(models){
         this.belongsTo(models.Customer , {as:'customer'});
+        this.belongsToMany(models.Product ,{
+          as:'items',
+          through:models.OrderProduct,
+          foreignKey:'orderId',
+          otherKey:'productId'
+      });
       //models
     }
     static config(sequelize){
