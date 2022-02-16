@@ -40,7 +40,7 @@ const{USERS_TABLE}=require('../models/user.model')
               key:'id'
           },
         onUpdate:'CASCADE',
-        onDelete:'SET NULL'
+        //onDelete:'SET NULL'
         }
       });
     },

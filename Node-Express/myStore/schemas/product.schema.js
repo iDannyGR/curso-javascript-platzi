@@ -10,6 +10,9 @@ const categoryId = joi.number().integer();
 const limit = joi.number().integer();
 const offset = joi.number().integer();
 
+const pricemin = joi.number().integer().min(10);
+const pricemax = joi.number().integer().min(10);
+
 const CreateProductSchema = joi.object({
   name: name.required(),
   price: price.required(),
@@ -32,7 +35,13 @@ const getProductSchema = joi.object({
 
 const queryProductSchema = joi.object({
   limit,
-  offset
+  offset,
+  price,
+  pricemin,
+  pricemax: pricemax.when('pricemin',{
+    is: joi.number().integer(),
+    then: joi.required()
+  })
 })
 
 const deleteProductSchema = joi.object({
